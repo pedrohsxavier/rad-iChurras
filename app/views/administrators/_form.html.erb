@@ -1,0 +1,45 @@
+<%= form_with(model: administrator, local: true) do |form| %>
+  <% if administrator.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(administrator.errors.count, "error") %> prohibited this administrator from being saved:</h2>
+
+      <ul>
+      <% administrator.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :nome %>
+    <%= form.text_field :nome %>
+  </div>
+
+  <div class="field">
+    <%= form.label :matricula %>
+    <%= form.text_field :matricula %>
+  </div>
+
+  <div class="field">
+    <%= form.label :telefone %>
+    <%= form.text_field :telefone %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.text_field :email %>
+  </div>
+
+  <div id="guests">
+    <%= form.fields_for :guests do | guests_fields | %>
+      <%= render partial: "guest_fields", locals: {f: guests_fields} %>
+    <% end %>
+
+    <%= link_to_add_association('[Novo convidado]', form, :guests) %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

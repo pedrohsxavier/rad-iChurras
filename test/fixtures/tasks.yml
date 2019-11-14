@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  descricao: MyString
+  valor: 1.5
+  prazo: 1
+
+two:
+  descricao: MyString
+  valor: 1.5
+  prazo: 1
